@@ -2,3 +2,11 @@
     width:100%;
     margin: auto;
 }
+
+.tbl-row:hover{
+    background-color: rgb(219, 238, 245);
+}
+
+.tbl-row .tbl-data {
+    max-width: 500px;
+}

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/student.model';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { TokenMessage } from '../models/token-message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class StudentService {
 
   public deleteStudentById(id: number): Observable<any>{
     return this.http.delete(`${this.api}/students/${id}`);
+  }
+
+  public sendToken(token: string): Observable<TokenMessage>{
+    return <Observable<TokenMessage>>this.http.post(`${this.api}/validate_token`, {recaptcha: token});
   }
 }

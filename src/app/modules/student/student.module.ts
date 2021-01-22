@@ -7,6 +7,7 @@ import { CreateStudentComponent } from './create-student/create-student.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { ViewStudentComponent } from './view-student/view-student.component';
   imports: [
     CommonModule,
     StudentRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ]
 })
 export class StudentModule { }

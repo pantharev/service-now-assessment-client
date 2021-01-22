@@ -21,7 +21,13 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <re-captcha (resolved)="resolved($event)" 
+        formControlName="recaptchaReactive" 
+        siteKey="6Lf7yzcaAAAAAPt8-KT1Mu20nlpuRtjJRz8V5c0s">  
+        </re-captcha>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
     </form>
 </div>
 

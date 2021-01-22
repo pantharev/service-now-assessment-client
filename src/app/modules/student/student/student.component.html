@@ -13,10 +13,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let student of students; let i = index">
+        <tr *ngFor="let student of students; let i = index" class="tbl-row">
             <th scope="row">{{student.id}}</th>
-            <td>{{student.firstName}}</td>
-            <td>{{student.lastName}}</td>
+            <td class="text-break tbl-data">{{student.firstName}}</td>
+            <td class="text-break tbl-data">{{student.lastName}}</td>
             <td>
                 <a class="btn btn-primary" [routerLink]="['/student', student.id]"><i class="fas fa-address-card"></i> View</a>
                 | 

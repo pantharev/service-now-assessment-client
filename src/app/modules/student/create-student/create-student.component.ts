@@ -12,9 +12,11 @@ export class CreateStudentComponent implements OnInit {
 
   studentForm = this.fb.group({
     firstName: ['', Validators.required],
-    lastName: ['', Validators.required]
+    lastName: ['', Validators.required],
+    recaptchaReactive: [''],
   });
   submitted: boolean = false;
+  recaptchaSuccess: boolean = false;
 
   constructor(private fb: FormBuilder, private studentService: StudentService, private router: Router) { }
 
@@ -24,7 +26,7 @@ export class CreateStudentComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    if(this.studentForm.invalid) return;
+    if(this.studentForm.invalid || !this.recaptchaSuccess) return;
 
     let firstName = this.studentForm.get("firstName").value;
     let lastName = this.studentForm.get("lastName").value;
@@ -34,6 +36,14 @@ export class CreateStudentComponent implements OnInit {
         console.warn(JSON.stringify(student));
         this.router.navigateByUrl("/");
       });
+  }
+
+  resolved(captchaToken: string){
+    this.studentService.sendToken(captchaToken).subscribe(tokenMessage => {
+      console.log(JSON.stringify(tokenMessage));
+      this.recaptchaSuccess = tokenMessage.success;
+    });
+    console.log(`Captcha token: ${captchaToken}`);
   }
 
 }
