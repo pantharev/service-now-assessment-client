@@ -1,0 +1,29 @@
+<h2 class="text-center">Students Table</h2>
+<div class="d-flex justify-content-center pb-2">
+    <button class="btn btn-success" (click)="addStudent()"><i class="fas fa-user-plus"></i> Add student</button>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of students; let i = index">
+            <th scope="row">{{student.id}}</th>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>
+                <a class="btn btn-primary" [routerLink]="['/student', student.id]"><i class="fas fa-address-card"></i> View</a>
+                | 
+                <a class="btn btn-warning" [routerLink]="['/edit-student', student.id]"><i class="fas fa-user-edit"></i> Edit</a>
+                <button class="btn btn-danger" (click)="deleteStudent(student)"><i class="fas fa-user-alt-slash"></i> Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,26 @@
+<h2 class="text-center mb-3" *ngIf="student">Edit Student: [{{student.id}} {{student.firstName}} {{student.lastName}}]</h2>
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="btn btn-warning" [routerLink]="['/']"><i class="fas fa-arrow-left"></i> Go back</a>
+</div>
+
+<div class="d-flex justify-content-center">
+    <form class="w-25" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">   
+            <label for="firstName">First Name</label>
+            <input class="form-control" [ngClass]="{'is-invalid': !this.studentForm.get('firstName').valid && this.submitted}" formControlName="firstName" type="text" id="firstName" required>
+            <div class="invalid-feedback" *ngIf="!this.studentForm.get('firstName').valid && this.submitted">
+                Please provide a first name.
+            </div>
+        </div>
+        <div class="mb-3">   
+            <label for="lastName">Last Name</label>
+            <input class="form-control" [ngClass]="{'is-invalid': !this.studentForm.get('lastName').valid && this.submitted}" formControlName="lastName" type="text" id="lastName">
+            <div class="invalid-feedback" *ngIf="!this.studentForm.get('lastName').valid && this.submitted">
+                Please provide a last name.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
