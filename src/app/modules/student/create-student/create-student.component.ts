@@ -13,7 +13,7 @@ export class CreateStudentComponent implements OnInit {
   studentForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    recaptchaReactive: [''],
+    recaptchaReactive: ['', Validators.required],
   });
   submitted: boolean = false;
   recaptchaSuccess: boolean = false;
@@ -33,7 +33,7 @@ export class CreateStudentComponent implements OnInit {
 
     this.studentService.createStudent({firstName: firstName, lastName: lastName})
       .subscribe(student => {
-        console.warn(JSON.stringify(student));
+        console.log(JSON.stringify(student));
         this.router.navigateByUrl("/");
       });
   }
@@ -43,7 +43,6 @@ export class CreateStudentComponent implements OnInit {
       console.log(JSON.stringify(tokenMessage));
       this.recaptchaSuccess = tokenMessage.success;
     });
-    console.log(`Captcha token: ${captchaToken}`);
   }
 
 }

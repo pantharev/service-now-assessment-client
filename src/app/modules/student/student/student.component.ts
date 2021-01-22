@@ -25,10 +25,9 @@ export class StudentComponent implements OnInit {
     let result = confirm('Delete: [' + student.id + " " + student.firstName + " " + student.lastName + "] \nAre you sure?");
     if(result){
       this.studentService.deleteStudentById(student.id).subscribe(msg => {
-        console.warn(msg);
+        console.log(JSON.stringify(msg));
         this.students.splice(this.students.indexOf(student), 1);
       });
-      //alert("deleted: " + JSON.stringify(student));
     }
   }
 
