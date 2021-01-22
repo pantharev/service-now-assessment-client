@@ -1,5 +1,10 @@
 # ServiceNowAssessmentClient
 
+This project displays a student table in which students (with first name and last name) can be added to it. Validation is included and google's reCaptcha is included to prevent bot spam.
+Additionally, student fields can be edited, individual students can be viewed, and student rows can be deleted.
+
+---------------------------------------------------------
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3. Updated to Angular Version 11.
 
 ## Development server
